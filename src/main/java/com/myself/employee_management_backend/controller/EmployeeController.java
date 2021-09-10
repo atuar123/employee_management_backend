@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(value = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping(value = "/api/v1/employees")
+@RequestMapping(value = "/api/v1")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
@@ -17,7 +17,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/employees")
     public List<Employee> employeeList(){
         return employeeService.getAll();
     }
