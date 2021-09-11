@@ -29,16 +29,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee update(Employee employee) {
-        return null;
+        return employeeRepository.save(employee);
     }
 
     @Override
     public Employee getById(Long id) {
-        return null;
+        Employee employee = employeeRepository.findById(id).get();
+        return employee;
     }
 
     @Override
     public String delete(Long id) {
-        return null;
+        Employee employee = employeeRepository.findById(id).get();
+        employeeRepository.delete(employee);
+        return "Deleted Successfully";
     }
 }
